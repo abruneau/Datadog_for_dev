@@ -3,17 +3,23 @@ name: validations
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     branches:
-    - main
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      REF_TO_TEST: ${{ github.event.inputs.branch || 'main' }}
+      DD_SERVICE: my_shop
+      DD_CIVISIBILITY_AGENTLESS_ENABLED: 1
+      DD_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+      DD_ENV: ci
     steps:
-    - uses: actions/checkout@v2
-    - name: Install modules
-      run: npm install
-    - name: Run tests
-      run: npm run test
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: npm install
+      - name: Run tests
+        run: npm run test:ci
