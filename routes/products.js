@@ -11,7 +11,7 @@ const products = [{ id: '1', name: 'Playstation 5', inStock: false }];
 // GET / => array of items
 
 router.get('/', (req, res) => {
-    res.json(products);
+    res.json('products');
 });
 
 // GET / => items by ID
