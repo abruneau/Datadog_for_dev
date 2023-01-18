@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: test
     env:
       REF_TO_TEST: ${{ github.event.inputs.branch || 'main' }}
       DD_SERVICE: my_shop
