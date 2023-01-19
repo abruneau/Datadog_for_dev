@@ -82,3 +82,8 @@ describe('GET /', () => {
     return request(app).post('/').send({ name: 123456789 }).expect(400);
   });
 });
+
+it('Simulate Flaky test', () => {
+  const num = Math.random()
+  expect(num).toBeLessThan(0.7)
+})
