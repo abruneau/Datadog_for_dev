@@ -20,6 +20,10 @@ jobs:
       DD_ENV: ci
     steps:
       - uses: actions/checkout@v2
+      - name: Install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "18"
       - name: Install modules
         run: npm install
       - name: Run tests
