@@ -3,7 +3,7 @@
       {
         "id": "48g-ycr-i9w",
         "config": {
-          "variables": {"START_URL": "https://localhost:30000"}
+          "variables": {"START_URL": "http://localhost:3000"}
         }
       }
     ]
