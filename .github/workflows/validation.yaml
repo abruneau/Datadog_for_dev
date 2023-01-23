@@ -26,7 +26,27 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
+          cache: 'npm'
       - name: Install modules
         run: npm install
       - name: Run tests
         run: npm run test:ci
+
+  e2e_testing:
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: 'npm'
+      - name: Install modules
+        run: npm install
+      - name: Run synthetics test
+        run: |
+          npm run start &
+          npm run synthetics
+        env:
+          DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+          DATADOG_APP_KEY: ${{ secrets.DD_APPLICATION_KEY }}

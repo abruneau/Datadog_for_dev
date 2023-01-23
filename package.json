@@ -9,7 +9,8 @@
     "start": "node server.js",
     "test:ci": "NODE_OPTIONS='-r dd-trace/ci/init' jest --passWithNoTests",
     "test:watch": "jest --watchAll",
-    "test": "jest"
+    "test": "jest",
+    "synthetics": "datadog-ci synthetics run-tests --config datadog.config.json --tunnel"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "supertest": "^6.3.3"
   },
   "devDependencies": {
+    "@datadog/datadog-ci": "^2.3.2",
     "dd-trace": "^3.11.0"
   }
 }
