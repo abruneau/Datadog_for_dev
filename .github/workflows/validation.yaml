@@ -41,34 +41,12 @@ jobs:
         with:
           node-version: "18"
           cache: 'npm'
-      - uses: JarvusInnovations/background-action@v1
-        with:
-          run: |
-            npm install
-            npm start
-          # your step-level and job-level environment variables are available to your commands as-is
-          # npm install will count towards the wait-for timeout
-          # whenever possible, move unrelated scripts to a different step
-          # to background multiple processes: add & to the end of the command
-          wait-on: |
-            http://localhost:30000
-          # IMPORTANT: to use environment variables in wait-on, you must use this form: ${{ env.VAR }}
-          # See wait-on section below for all resource types and prefixes
-          tail: true # true = stderr,stdout
-          # This will allow you to monitor the progress live
-          log-output-resume: stderr
-          # Eliminates previosuly output stderr log entries from post-run output
-          wait-for: 5m
-          log-output: stderr,stdout # same as true
-          log-output-if: failure
-          # failure = exit-early or timeout
-          working-directory: backend
-          # sets the working directory (cwd) for the shell running commands
-      - name: Run Datadog Synthetics tests
-        uses: DataDog/synthetics-ci-github-action@v0.9.2
-        with:
-          api_key: ${{ secrets.DATADOG_API_KEY }}
-          app_key: ${{ secrets.DD_APPLICATION_KEY }}
-          tunnel: true
-          files: 'ci.synthetics.json'
-          subdomain: abruneau
+      - name: Install modules
+        run: npm install
+      - name: Run synthetics test
+        run: |
+          npm start &
+          npm synthetics
+        env:
+          DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+          DATADOG_APP_KEY: ${{ secrets.DD_APPLICATION_KEY }}
