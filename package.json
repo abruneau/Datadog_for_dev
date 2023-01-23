@@ -7,7 +7,7 @@
     "build": "REV=$(git rev-parse HEAD) docker compose up -d",
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "test:ci": "NODE_OPTIONS='-r dd-trace/ci/init' jest --passWithNoTests",
+    "test:ci": "NODE_OPTIONS='-r dd-trace/ci/init' jest --coverage --passWithNoTests",
     "test:watch": "jest --watchAll",
     "test": "jest",
     "synthetics": "datadog-ci synthetics run-tests --config datadog.config.json --tunnel"
