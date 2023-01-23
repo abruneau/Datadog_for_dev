@@ -10,7 +10,7 @@
     "test:ci": "NODE_OPTIONS='-r dd-trace/ci/init' jest --passWithNoTests",
     "test:watch": "jest --watchAll",
     "test": "jest",
-    "synthetics": "datadog-ci synthetics run-tests --config datadog.config.json --tunel"
+    "synthetics": "datadog-ci synthetics run-tests --config datadog.config.json --tunnel"
   },
   "keywords": [],
   "author": "",
