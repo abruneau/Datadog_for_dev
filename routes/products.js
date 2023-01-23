@@ -4,13 +4,18 @@ const router = express.Router();
 
 const createError = require('http-errors');
 
+let fail = false
+
 // Products Array
 
 const products = [{ id: '1', name: 'Playstation 5', inStock: false }];
 
 // GET / => array of items
 
-router.get('/', (req, res) => {
+router.get('/', (_req, res, next) => {
+    if (fail && Math.random() < 0.8) {
+       return next(createError(500, 'Internal Server Error'))
+    }
     res.json(products);
 });
 
@@ -48,6 +53,16 @@ router.post('/', (req, res, next) => {
     products.push(newProduct);
 
     res.status(201).json(newProduct);
+});
+
+router.get('/fail/on', (_req, res) => {
+    fail = true
+    res.json({});
+});
+
+router.get('/fail/off', (_req, res) => {
+    fail = false
+    res.json({});
 });
 
 module.exports = router;
