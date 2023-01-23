@@ -43,7 +43,7 @@ router.post('/', (req, res, next) => {
     }
 
     const newProduct = {
-        id: '1',
+        id: (products.length + 1).toString(),
 
         name: body.name,
 
