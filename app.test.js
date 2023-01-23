@@ -85,5 +85,5 @@ describe('GET /', () => {
 
 it('Simulate Flaky test', () => {
   const num = Math.random()
-  expect(num).toBeLessThan(0.7)
+  expect(num).toBeLessThan(0.9)
 })
