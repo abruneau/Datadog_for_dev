@@ -22,6 +22,7 @@
     "supertest": "^6.3.3"
   },
   "devDependencies": {
+    "@datadog/datadog-ci": "^2.3.2",
     "dd-trace": "^3.11.0"
   }
 }

@@ -30,3 +30,24 @@ jobs:
         run: npm install
       - name: Run tests
         run: npm run test:ci
+
+  e2e_testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Install modules
+        run: npm install
+      - name: Run app in the background
+        run: npm start &
+      - name: Run Datadog Synthetics tests
+        uses: DataDog/synthetics-ci-github-action@v0.9.2
+        with:
+          api_key: ${{ secrets.DATADOG_API_KEY }}
+          app_key: ${{ secrets.DD_APPLICATION_KEY }}
+          tunnel: true
+          files: 'ci.synthetics.json'

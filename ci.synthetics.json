@@ -1,0 +1,10 @@
+{
+    "tests": [
+      {
+        "id": "48g-ycr-i9w",
+        "config": {
+          "variables": {"START_URL": "https://localhost:30000"}
+        }
+      }
+    ]
+  }
