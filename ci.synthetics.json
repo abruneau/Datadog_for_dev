@@ -5,6 +5,12 @@
         "config": {
           "variables": {"START_URL": "http://localhost:3000"}
         }
+      },
+      {
+        "id": "9i8-gvg-ci6",
+        "config": {
+          "variables": {"START_URL": "http://localhost:3000"}
+        }
       }
     ]
   }
