@@ -54,3 +54,4 @@ jobs:
           app_key: $DD_APPLICATION_KEY
           tunnel: true
           files: 'ci.synthetics.json'
+          subdomain: abruneau
