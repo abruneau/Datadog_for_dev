@@ -81,6 +81,15 @@ describe('GET /', () => {
   it('POST / => item name correct data type check', () => {
     return request(app).post('/').send({ name: 123456789 }).expect(400);
   });
+
+  it('GET /fail/on => trigger Get / to fail', () => {
+    return request(app).get('/fail/on').expect(200)
+  });
+  
+  it('GET /fail/off => trigger Get / to pass', () => {
+    return request(app).get('/fail/off').expect(200)
+  });
+
 });
 
 it('Simulate Flaky test', () => {
