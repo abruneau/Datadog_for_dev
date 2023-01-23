@@ -45,8 +45,8 @@ jobs:
         run: npm install
       - name: Run synthetics test
         run: |
-          npm start &
-          npm synthetics
+          npm run start &
+          npm run synthetics
         env:
           DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
           DATADOG_APP_KEY: ${{ secrets.DD_APPLICATION_KEY }}
