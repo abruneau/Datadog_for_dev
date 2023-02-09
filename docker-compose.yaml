@@ -42,5 +42,6 @@ services:
       DD_APPSEC_ENABLED: 'true'
       DD_REMOTE_CONFIG_ENABLED: 'true'
       DD_VERSION: $REV
+      DD_SERVICE: 'my_shop'
       DD_TAGS: "git.commit.sha:$REV,git.repository_url:github.com/abruneau/Datadog_for_dev"
       DD_TRACE_STARTUP_LOGS: 'true'   

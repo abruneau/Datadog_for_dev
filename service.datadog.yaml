@@ -1,0 +1,13 @@
+schema-version: v2
+dd-service: my_shop
+team: ese-france
+contacts:
+  - type: slack
+    contact: https://dd.slack.com/archives/C0431L08RLL
+  - type: email 
+    name: Antonin Bruneau
+    contact: antonin.bruneau@datadoghq.com 
+repos:
+  - name: Source Code
+    provider: Github
+    url: https://github.com/abruneau/Datadog_for_dev

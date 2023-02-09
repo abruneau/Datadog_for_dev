@@ -1,0 +1,1 @@
+REV=$(git rev-parse HEAD) docker compose up -d
