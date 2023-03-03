@@ -16,7 +16,7 @@ router.get('/', (_req, res, next) => {
     if (fail && Math.random() < 0.8) {
         return next(createError(500, 'Internal Server Error'))
     }
-    res.json(products);
+    res.json("products");
 });
 
 // GET / => items by ID
