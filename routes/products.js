@@ -7,6 +7,7 @@ const createError = require('http-errors');
 let fail = false
 
 // Products Array
+// Add more products
 
 const products = [{ id: '1', name: 'Playstation 5', inStock: false }];
 
@@ -16,7 +17,7 @@ router.get('/', (_req, res, next) => {
     if (fail && Math.random() < 0.8) {
        return next(createError(500, 'Internal Server Error'))
     }
-    res.json(products);
+    res.json("products");
 });
 
 // GET / => items by ID
