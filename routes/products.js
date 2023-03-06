@@ -7,6 +7,7 @@ const createError = require('http-errors');
 let fail = false
 
 // Products Array
+// Add more products
 
 const products = [{ id: '1', name: 'Playstation 5', inStock: false }];
 
